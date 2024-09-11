@@ -1,4 +1,4 @@
-import {Image, Pressable, Text, View} from 'react-native';
+import {Image, Pressable, ScrollView, Text, View} from 'react-native';
 import React,{useState} from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
@@ -7,6 +7,7 @@ import Ionicons from "react-native-vector-icons/Ionicons"
 
 const PlayScreen = () => {
   const [option,setOptions]=useState("Calander");
+  const [sport,setSport]=useState("Badminton");
   return (
     <SafeAreaView>
       <View style={{padding:12,backgroundColor:"#223536"}}>
@@ -45,6 +46,72 @@ const PlayScreen = () => {
             fontSize:15,
             color:option === 'OtherSport'? "#12e04c":"#fff"
           }}>Other Sports</Text></Pressable>
+        </View>
+        <View>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <Pressable onPress={()=> setSport("Badminton")} style={{
+              padding:10,
+              borderColor:"#fff",
+              marginRight:10,
+              borderRadius:8,
+              borderWidth:sport === "Badminton"?0:1,
+              backgroundColor:sport === "Badminton"?"#1dbf22":"transparent"
+            }}>
+              <Text style={{color:"#fff"}}>Badminton</Text>
+            </Pressable>
+            <Pressable onPress={()=> setSport("Cricket")}
+            style={{
+              padding:10,
+              borderColor:"#fff",
+              marginRight:10,
+              borderRadius:8,
+              borderWidth:sport === "Cricket"?0:1,
+              backgroundColor:sport === "Cricket"?"#1dbf22":"transparent"
+            }}>
+              <Text style={{color:"#fff"}}>Cricket</Text>
+            </Pressable>
+            <Pressable onPress={()=> setSport("Football")} 
+            style={{
+              padding:10,
+              borderColor:"#fff",
+              marginRight:10,
+              borderRadius:8,
+              borderWidth:sport === "Football"?0:1,
+              backgroundColor:sport === "Football"?"#1dbf22":"transparent"
+            }}>
+              <Text style={{color:"#fff"}}>Football</Text>
+            </Pressable>
+            <Pressable onPress={()=> setSport("BasketBall")}
+            style={{
+              padding:10,
+              borderColor:"#fff",
+              marginRight:10,
+              borderRadius:8,
+              borderWidth:sport === "BasketBall"?0:1,
+              backgroundColor:sport === "BasketBall"?"#1dbf22":"transparent"
+            }}>
+              <Text style={{color:"#fff"}}>BasketBall</Text>
+            </Pressable>
+          </ScrollView>
+        </View>
+      </View>
+      <View style={{
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'space-between',
+        padding:10,
+        backgroundColor:'#fff'
+      }}>
+        <Pressable>
+          <Text style={{fontWeight:'bold'}}>Create Game</Text>
+        </Pressable>
+        <View style={{flexDirection:"row",alignItems:'center',gap:10}}>
+        <Pressable>
+          <Text style={{fontWeight:'bold'}}>Filter</Text>
+        </Pressable>
+        <Pressable>
+          <Text style={{fontWeight:'bold'}}>Sort</Text>
+        </Pressable>
         </View>
       </View>
     </SafeAreaView>
