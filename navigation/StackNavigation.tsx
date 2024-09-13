@@ -7,9 +7,11 @@ import HomeScreen from '../screens/HomeScreen';
 import PlayScreen from '../screens/PlayScreen';
 import BookScreen from '../screens/BookScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import VenueInfoCard from '../components/VenueInfoCard';
 
 type RootStackParamList = {
   Main: undefined;
+  Venue:undefined;
 };
 
 type BottomTabParamList = {
@@ -89,6 +91,11 @@ const MainStack: React.FC = () => {
       <Stack.Screen
         name="Main"
         component={BottomTabs}
+        options={{ headerShown: false }} // This is correct for hiding the stack navigator header
+      />
+       <Stack.Screen
+        name="Venue"
+        component={VenueInfoCard}
         options={{ headerShown: false }} // This is correct for hiding the stack navigator header
       />
     </Stack.Navigator>
